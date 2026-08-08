@@ -1,0 +1,59 @@
+{
+  "policyName": "Northlake Regional Health - Segregation of Duties Matrix",
+  "version": "1.0",
+  "effectiveDate": "2026-08-08",
+  "owner": "Chief Compliance Officer",
+  "reviewCadence": "Annual",
+  "conflicts": [
+    {
+      "id": "SOD-001",
+      "name": "Charge Entry + Claims Submission",
+      "groupA": "ENT-Charge-Entry",
+      "groupB": "ENT-Claims-Submission",
+      "severity": "Critical",
+      "riskStatement": "A single identity can both originate a patient charge and submit it to a payer, with no independent review between creation and billing. This is the primary control failure in healthcare billing fraud.",
+      "controlMapping": ["SOX-ITGC-Access", "HIPAA-164.312(a)(1)", "FCA-Billing-Integrity"],
+      "remediation": "Revoke the non-primary entitlement. If cross-coverage is operationally required, provision time-bound access via access package with mandatory expiration."
+    },
+    {
+      "id": "SOD-002",
+      "name": "Clinical Documentation + Medical Coding",
+      "groupA": "RBAC-Clinical-Prescribers",
+      "groupB": "ENT-Medical-Coding",
+      "severity": "High",
+      "riskStatement": "A clinician who documents an encounter and also assigns its billing codes can inflate reimbursement without a second party detecting the discrepancy. Known as upcoding.",
+      "controlMapping": ["FCA-Billing-Integrity", "CMS-Coding-Compliance"],
+      "remediation": "Remove coding entitlement from clinical staff. Route documentation improvement work through a coding liaison who holds no prescribing rights."
+    },
+    {
+      "id": "SOD-003",
+      "name": "Charge Entry + Payment Posting",
+      "groupA": "ENT-Charge-Entry",
+      "groupB": "ENT-Payment-Posting",
+      "severity": "Critical",
+      "riskStatement": "A single identity can create a charge and post the payment or write-off against it, enabling lapping and cash misappropriation with no reconciliation break.",
+      "controlMapping": ["SOX-ITGC-Access", "COSO-Control-Activities"],
+      "remediation": "Enforce separation between charge origination and cash application. Backfill coverage must use temporary elevation, not standing grants."
+    },
+    {
+      "id": "SOD-004",
+      "name": "Systems Administration + Full PHI Access",
+      "groupA": "ENT-PHI-Full-Access",
+      "groupB": "RBAC-IT-Staff",
+      "severity": "High",
+      "riskStatement": "Infrastructure administrators holding standing unrestricted PHI access violate HIPAA minimum necessary. Administrative duties do not require clinical record content.",
+      "controlMapping": ["HIPAA-164.502(b)", "HIPAA-164.312(a)(1)", "NIST-AC-6"],
+      "remediation": "Replace standing PHI access with break-glass elevation via PIM, time-bound and alerting on activation.",  
+    },
+    {
+      "id": "SOD-005",
+      "name": "Internal Audit + Operational Transaction Access",
+      "groupA": "ENT-Payment-Posting",
+      "groupB": "ENT-Charge-Entry",
+      "severity": "Medium",
+      "riskStatement": "Internal audit personnel holding write access to systems within their audit scope cannot render an independent opinion on those systems.",
+      "controlMapping": ["IIA-Standard-1100", "SOX-ITGC-Access"],
+      "remediation": "Provision audit personnel with read-only entitlements. Sampling does not require transactional rights."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "scanMetadata": {
+    "tenantId": "338fe533-5dc8-4c43-94db-81ec7c8016cb",
+    "operator": "kadest.admin@Kadestekoubegzigmail.onmicrosoft.com",
+    "policyName": "Northlake Regional Health - Segregation of Duties Matrix",
+    "policyVersion": "1.0",
+    "scanStartedUtc": "2026-08-08T23:14:40Z",
+    "scanCompletedUtc": "2026-08-08T23:14:40Z",
+    "durationSeconds": 0.4,
+    "identitiesScanned": 0,
+    "rulesEvaluated": 5,
+    "findingCount": 0
+  },
+  "findings": null
+}
