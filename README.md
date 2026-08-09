@@ -32,7 +32,7 @@ This project demonstrates:
 
 * ✅ **Least-privilege access**
 
-The environment models the identity system of a fictional regional healthcare organization called **Northlake Regional Health**.
+The environment models the identity system of a fictional regional Healthcare organization called **Northlake Regional Health**.
 
 No real employees, patients, or Protected Health Information (PHI) are used.
 
