@@ -1,0 +1,42 @@
+{
+  "eventMetadata": {
+    "eventType": "Leaver",
+    "operator": "kadest.admin@Kadestekoubegzigmail.onmicrosoft.com",
+    "tenantId": "338fe533-5dc8-4c43-94db-81ec7c8016cb",
+    "subjectUpn": "terrence.wu@Kadestekoubegzigmail.onmicrosoft.com",
+    "subjectName": "Terrence Wu",
+    "roleAtExit": "Denials Analyst, Revenue Cycle",
+    "employeeId": "C3007",
+    "reason": "Contract ended 2026-08-08. Denials Analyst, contractor.",
+    "eventUtc": "2026-08-09T00:23:48Z"
+  },
+  "accessAtTermination": [
+    {
+      "Name": "RBAC-Contractors-All",
+      "Kind": "Dynamic",
+      "Id": "8260f630-5c2b-4481-a321-c5a7b83a0f06"
+    },
+    {
+      "Name": "RBAC-RevCycle-Staff",
+      "Kind": "Dynamic",
+      "Id": "0aa48826-1c17-4eed-b5e5-527842ea3388"
+    },
+    {
+      "Name": "RBAC-Site-Marietta",
+      "Kind": "Dynamic",
+      "Id": "155f2a63-759b-4d30-893d-a6d584881df1"
+    }
+  ],
+  "actionsCompleted": [
+    "AccountDisabled",
+    "SessionRevocationFailed",
+    "ManagerCleared"
+  ],
+  "entitlementsRemoved": [],
+  "residualMembership": [
+    "RBAC-RevCycle-Staff",
+    "RBAC-Contractors-All",
+    "RBAC-Site-Marietta"
+  ],
+  "accountEnabledAfter": false
+}

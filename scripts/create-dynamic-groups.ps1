@@ -92,13 +92,13 @@ $groups = @(
     @{
         Name        = 'RBAC-Contractors-All'
         Description = 'Dynamic. All non-employee workers. Conditional Access targeting.'
-        Rule        = '(user.employeeType -eq "Contractor")'
+        Rule        = '(user.accountEnabled -eq true) -and (user.extensionAttribute1 -eq "Contractor")'
         Rationale   = 'Worker-type segmentation for stricter access controls.'
     }
     @{
         Name        = 'RBAC-Site-Marietta'
         Description = 'Dynamic. Marietta campus staff. Location-scoped policy targeting.'
-        Rule        = '(user.officeLocation -eq "Marietta")'
+        Rule        = '(user.accountEnabled -eq true) -and (user.physicalDeliveryOfficeName -eq "Marietta")'
         Rationale   = 'Site segmentation for location-aware Conditional Access.'
     }
 )

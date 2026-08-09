@@ -1,0 +1,81 @@
+{
+  "eventMetadata": {
+    "eventType": "Mover",
+    "operator": "kadest.admin@Kadestekoubegzigmail.onmicrosoft.com",
+    "tenantId": "338fe533-5dc8-4c43-94db-81ec7c8016cb",
+    "subjectUpn": "grace.lindqvist@Kadestekoubegzigmail.onmicrosoft.com",
+    "subjectName": "Grace Lindqvist",
+    "eventUtc": "2026-08-09T00:14:01Z",
+    "waitSeconds": 300
+  },
+  "attributeChanges": {
+    "department": "Clinical",
+    "jobTitle": "Nurse Practitioner"
+  },
+  "membershipBefore": [
+    {
+      "Name": "ENT-Medical-Coding",
+      "Kind": "Assigned"
+    },
+    {
+      "Name": "RBAC-RevCycle-Staff",
+      "Kind": "Dynamic"
+    },
+    {
+      "Name": "RBAC-Site-Marietta",
+      "Kind": "Dynamic"
+    }
+  ],
+  "membershipAfter": [
+    {
+      "Name": "ENT-Medical-Coding",
+      "Kind": "Assigned"
+    },
+    {
+      "Name": "RBAC-Clinical-Prescribers",
+      "Kind": "Dynamic"
+    },
+    {
+      "Name": "RBAC-Clinical-Staff",
+      "Kind": "Dynamic"
+    },
+    {
+      "Name": "RBAC-Site-Marietta",
+      "Kind": "Dynamic"
+    }
+  ],
+  "delta": {
+    "gained": [
+      {
+        "Name": "RBAC-Clinical-Prescribers",
+        "Kind": "Dynamic"
+      },
+      {
+        "Name": "RBAC-Clinical-Staff",
+        "Kind": "Dynamic"
+      }
+    ],
+    "lost": [
+      {
+        "Name": "RBAC-RevCycle-Staff",
+        "Kind": "Dynamic"
+      }
+    ],
+    "retained": [
+      {
+        "Name": "ENT-Medical-Coding",
+        "Kind": "Assigned"
+      },
+      {
+        "Name": "RBAC-Site-Marietta",
+        "Kind": "Dynamic"
+      }
+    ]
+  },
+  "orphanedEntitlements": [
+    {
+      "Name": "ENT-Medical-Coding",
+      "Kind": "Assigned"
+    }
+  ]
+}

@@ -105,6 +105,15 @@ foreach ($u in $users) {
 Write-Progress -Activity 'Resolving transitive group membership' -Completed
 Write-Host "  Membership resolved for $($membership.Count) identities" -ForegroundColor Green
 
+# Guard clause. An empty membership map means the scan examined nothing.
+# Reporting "no violations" in that state is a FALSE CLEAN result - the most
+# dangerous failure mode for a compliance control, because nobody investigates
+# a green light. Discovered 2026-08-08 when an expired Graph token produced a
+# clean report against zero identities. Fail loudly instead.
+if ($membership.Count -eq 0) {
+    throw "Membership map is empty. Scan aborted to prevent a false clean result. Verify Graph authentication with Get-MgContext."
+}
+
 #endregion
 
 #region Evaluate matrix ------------------------------------------------------
