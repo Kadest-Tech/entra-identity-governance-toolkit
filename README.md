@@ -135,6 +135,10 @@ This means a compliance analyst can change the policy without rewriting the Powe
 ---
 
 # 🏥 Lab Environment
+![Seed script output](screenshots/01-01-seed-users-output.png)
+
+*`seed-users.ps1` provisioning 34 identities across 7 departments, with manager relationships and attribute distribution.*
+
 
 | Area                            | Configuration                                 |
 
@@ -257,6 +261,10 @@ Clinical baseline access
 Nobody manually places the employee into the group.
 
 Entra ID calculates membership from employee attributes.
+![Dynamic membership rule](screenshots/01-02-dynamic-rule-accountenabled.png)
+
+*`RBAC-Clinical-Prescribers` membership rule. The `accountEnabled` clause was added after Finding #8 revealed that disabled accounts retained group membership indefinitely.*
+
 
 If the employee changes departments, the group membership changes automatically.
 
@@ -343,6 +351,14 @@ That is a scoping control, not a technicality.
 ---
 
 ## Access Package
+![Access package requests and approval](screenshots/02-03-package-requests-approval.png)
+
+*Approval workflow: manager as approver, 7-day decision window, justification required from both requester and approver.*
+
+![Access package lifecycle and review](screenshots/02-04-package-lifecycle-review.png)
+
+*Lifecycle: 90-day expiry, no extension, quarterly manager-attested review, access removed if the reviewer does not respond.*
+
 
 ```text
 
@@ -459,6 +475,14 @@ Each test created timestamped evidence.
 | 🟡 **Mover**  | Gained 2 dynamic groups, lost 1, but kept `ENT-Medical-Coding`     | A normal department transfer created a new SoD conflict even though nobody requested new sensitive access.                |
 
 | 🔴 **Leaver** | Account disabled and tokens revoked, but 3 dynamic groups remained | Disabling an account does not automatically remove dynamic memberships unless the group rule checks the account state.    |
+![Mover access delta](screenshots/04-02-mover-access-delta.png)
+
+*Mover event. Two dynamic groups gained, one lost, and `ENT-Medical-Coding` retained and flagged as orphaned entitlement risk.*
+
+![Joiner least privilege verification](screenshots/04-04-joiner-least-privilege.png)
+
+*Joiner event. One baseline group granted, zero entitlement groups. Least privilege verification passes.*
+
 
 ---
 
@@ -553,6 +577,10 @@ Scan time: 4.9 seconds
 | **Nina Kowalski**   | Prescriber + Medical Coding      |     🟠 High | Documentation project had no expiration date |
 
 | **Grace Lindqvist** | Prescriber + Medical Coding      |     🟠 High | Appeared automatically after a role transfer |
+![SoD scan findings](screenshots/04-01-sod-scan-grace-finding.png)
+
+*Final scan. Grace Lindqvist and Nina Kowalski both flagged under SOD-002 with identical conflicts and different origins.*
+
 
 ---
 
@@ -903,6 +931,14 @@ Connect-MgGraph -Scopes 'User.ReadWrite.All',
 ```
 
 > Note: device code authentication is blocked by Security Defaults in newer tenants.
+![PowerShell and Graph SDK setup](screenshots/00-01-powershell-graph-setup.png)
+
+*PowerShell 7.6.4 with the Microsoft Graph SDK modules installed.*
+
+![P2 license and granted scopes](screenshots/00-02-p2-license-and-scopes.png)
+
+*Entra ID P2 active with 100 licenses, and the delegated Graph scopes granted to the session.*
+
 
 > Use interactive authentication. See Finding #5 below.
 
@@ -1029,6 +1065,14 @@ The break-glass account is the recovery path.
 All three exclude the break-glass account.
 
 All three are **enabled**, not report-only.
+![Conditional Access policies report-only](screenshots/03-01-ca-policies-report-only.png)
+
+*Before enforcement. All three policies created in report-only mode, logging what they would do without applying it.*
+
+![Conditional Access policies enabled](screenshots/03-02-ca-policies-enabled.png)
+
+*After enforcement. All three policies enabled.*
+
 
 ---
 
@@ -1347,6 +1391,14 @@ Department RBAC groups  → Department leadership
 ```
 
 Ownerless groups went from **13** to **0**.
+![Group owners after remediation](screenshots/01-03-group-owners.png)
+
+*`ENT-Charge-Entry` with an assigned owner. Ownership was allocated by business accountability rather than convenience.*
+
+![Orphaned and stale account scan](screenshots/04-03-orphaned-accounts-scan.png)
+
+*Post-remediation scan. Ownerless groups reduced to zero.*
+
 
 ---
 
@@ -1779,6 +1831,7 @@ Built and tested in **August 2026**.
 5. `evidence/`
 
 These files show the main governance logic, policy design, testing process, and real execution results.
+
 
 
 
