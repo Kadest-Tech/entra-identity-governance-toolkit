@@ -1,0 +1,27 @@
+{
+  "eventMetadata": {
+    "eventType": "Joiner",
+    "operator": "kadest.admin@Kadestekoubegzigmail.onmicrosoft.com",
+    "tenantId": "338fe533-5dc8-4c43-94db-81ec7c8016cb",
+    "subjectUpn": "renee.okafor@Kadestekoubegzigmail.onmicrosoft.com",
+    "subjectName": "Renee Okafor",
+    "eventUtc": "2026-08-09T01:30:44Z"
+  },
+  "attributesSet": {
+    "department": "Revenue Cycle",
+    "jobTitle": "Claims Submission Specialist",
+    "officeLocation": "Atlanta",
+    "employeeType": "Employee",
+    "employeeId": "E3008",
+    "usageLocation": "US",
+    "manager": "latoya.simms@Kadestekoubegzigmail.onmicrosoft.com"
+  },
+  "accessGranted": [
+    {
+      "Group": "RBAC-RevCycle-Staff",
+      "Kind": "Dynamic"
+    }
+  ],
+  "entitlementGroupsGranted": [],
+  "leastPrivilegePass": true
+}
