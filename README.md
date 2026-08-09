@@ -88,13 +88,13 @@ Imagine this:
 
 Employee
 
-&#x20;  │
+   │
 
-&#x20;  ├── ENT-Charge-Entry
+   ├── ENT-Charge-Entry
 
-&#x20;  │
+   │
 
-&#x20;  └── ENT-Claims-Submission
+   └── ENT-Claims-Submission
 
 ```
 
@@ -188,43 +188,43 @@ This means a compliance analyst can change the policy without rewriting the Powe
 
 flowchart LR
 
-&#x20;   A["HR Attributes<br/>Department<br/>Job Title<br/>Location<br/>Employee Type"]
+    A["HR Attributes<br/>Department<br/>Job Title<br/>Location<br/>Employee Type"]
 
-&#x20;   B["Dynamic RBAC Groups<br/>RBAC-*"]
+    B["Dynamic RBAC Groups<br/>RBAC-*"]
 
-&#x20;   C["Baseline Access"]
+    C["Baseline Access"]
 
-&#x20;   D["Access Package<br/>Request + Approval"]
+    D["Access Package<br/>Request + Approval"]
 
-&#x20;   E["Assigned Entitlement Groups<br/>ENT-*"]
+    E["Assigned Entitlement Groups<br/>ENT-*"]
 
-&#x20;   F["Sensitive Access"]
+    F["Sensitive Access"]
 
-&#x20;   G["Test-SoDConflicts.ps1"]
+    G["Test-SoDConflicts.ps1"]
 
-&#x20;   H["sod-matrix.json<br/>Policy Rules"]
+    H["sod-matrix.json<br/>Policy Rules"]
 
-&#x20;   I["SoD Findings"]
+    I["SoD Findings"]
 
-&#x20;   J["CSV / JSON<br/>Audit Evidence"]
+    J["CSV / JSON<br/>Audit Evidence"]
 
-&#x20;   A --> B
+    A --> B
 
-&#x20;   B --> C
+    B --> C
 
-&#x20;   D --> E
+    D --> E
 
-&#x20;   E --> F
+    E --> F
 
-&#x20;   C --> G
+    C --> G
 
-&#x20;   F --> G
+    F --> G
 
-&#x20;   H --> G
+    H --> G
 
-&#x20;   G --> I
+    G --> I
 
-&#x20;   I --> J
+    I --> J
 
 ```
 
@@ -244,11 +244,11 @@ For example:
 
 Department = Clinical
 
-&#x20;       ↓
+        ↓
 
 RBAC-Clinical-Staff
 
-&#x20;       ↓
+        ↓
 
 Clinical baseline access
 
@@ -386,21 +386,21 @@ When an access review runs and the reviewer never responds, the system has two o
 
 Option A: Keep the access
 
-&#x20;         ↓
+          ↓
 
 Silence becomes approval
 
-&#x20;         ↓
+          ↓
 
 Stale access lives forever
 
 Option B: Remove the access
 
-&#x20;         ↓
+          ↓
 
 Silence becomes revocation
 
-&#x20;         ↓
+          ↓
 
 Access must be actively defended
 
@@ -480,15 +480,15 @@ The employee simply:
 
 Changed jobs
 
-&#x20;     ↓
+      ↓
 
 Dynamic access changed
 
-&#x20;     ↓
+      ↓
 
 Old entitlement remained
 
-&#x20;     ↓
+      ↓
 
 New SoD conflict appeared
 
@@ -656,15 +656,15 @@ Because access can hide inside nested groups.
 
 User
 
-&#x20;↓
+ ↓
 
 Group A
 
-&#x20;↓
+ ↓
 
 Group B
 
-&#x20;↓
+ ↓
 
 Sensitive Access
 
@@ -718,11 +718,11 @@ Instead:
 
 Scanner identifies suspicious access
 
-&#x20;             ↓
+              ↓
 
 Manager reviews the finding
 
-&#x20;             ↓
+              ↓
 
 Business owner makes the decision
 
@@ -844,7 +844,7 @@ entra-identity-governance-toolkit/
 
 └── screenshots/
 
-&#x20;   └── Visual evidence from the lab environment
+    └── Visual evidence from the lab environment
 
 ```
 
@@ -870,17 +870,17 @@ entra-identity-governance-toolkit/
 
 Install-Module Microsoft.Graph.Authentication,
 
-&#x20; Microsoft.Graph.Users,
+  Microsoft.Graph.Users,
 
-&#x20; Microsoft.Graph.Groups,
+  Microsoft.Graph.Groups,
 
-&#x20; Microsoft.Graph.Identity.DirectoryManagement,
+  Microsoft.Graph.Identity.DirectoryManagement,
 
-&#x20; Microsoft.Graph.Identity.Governance,
+  Microsoft.Graph.Identity.Governance,
 
-&#x20; Microsoft.Graph.Identity.SignIns,
+  Microsoft.Graph.Identity.SignIns,
 
-&#x20; Microsoft.Graph.Users.Actions -Scope CurrentUser
+  Microsoft.Graph.Users.Actions -Scope CurrentUser
 
 ```
 
@@ -892,13 +892,13 @@ Install-Module Microsoft.Graph.Authentication,
 
 Connect-MgGraph -Scopes 'User.ReadWrite.All',
 
-&#x20; 'Group.ReadWrite.All',
+  'Group.ReadWrite.All',
 
-&#x20; 'Directory.ReadWrite.All',
+  'Directory.ReadWrite.All',
 
-&#x20; 'AuditLog.Read.All',
+  'AuditLog.Read.All',
 
-&#x20; 'Organization.Read.All'
+  'Organization.Read.All'
 
 ```
 
@@ -994,15 +994,15 @@ Because a Conditional Access mistake can lock every administrator out of the ten
 
 Policy requires MFA for all users
 
-&#x20;             ↓
+              ↓
 
 Admin has no MFA method registered
 
-&#x20;             ↓
+              ↓
 
 Nobody can sign in
 
-&#x20;             ↓
+              ↓
 
 Nobody can fix the policy
 
@@ -1044,15 +1044,15 @@ That means they **cannot present an MFA prompt**.
 
 Attacker has valid password
 
-&#x20;       ↓
+        ↓
 
 Signs in over a legacy protocol
 
-&#x20;       ↓
+        ↓
 
 MFA is never requested
 
-&#x20;       ↓
+        ↓
 
 CA01 is bypassed
 
@@ -1072,7 +1072,7 @@ That overlap is intentional.
 
 If CA01 is ever narrowed, disabled, or misconfigured
 
-&#x20;                   ↓
+                    ↓
 
 Privileged accounts remain protected by CA03
 
@@ -1108,19 +1108,19 @@ For a period of time, the tenant had **no authentication controls at all**.
 
 Security Defaults disabled
 
-&#x20;         ↓
+          ↓
 
 Gap period
 
-&#x20;         ↓
+          ↓
 
 Three Conditional Access policies created
 
-&#x20;         ↓
+          ↓
 
 Policies enforced
 
-&#x20;         ↓
+          ↓
 
 Gap closed
 
@@ -1196,15 +1196,15 @@ Bad behavior:
 
 Authentication problem
 
-&#x20;       ↓
+        ↓
 
 0 users checked
 
-&#x20;       ↓
+        ↓
 
 "No violations"
 
-&#x20;       ↓
+        ↓
 
 False sense of security
 
@@ -1212,15 +1212,15 @@ Correct behavior:
 
 Authentication problem
 
-&#x20;       ↓
+        ↓
 
 Validation fails
 
-&#x20;       ↓
+        ↓
 
 Scan stops
 
-&#x20;       ↓
+        ↓
 
 Administrator investigates
 
@@ -1364,11 +1364,11 @@ Instead of weakening the security setting, I changed the project to use interact
 
 Security control blocks workflow
 
-&#x20;          ↓
+           ↓
 
 Do not disable security just to make the lab work
 
-&#x20;          ↓
+           ↓
 
 Change the workflow
 
@@ -1398,11 +1398,11 @@ Disabled user still has:
 
 department = "Revenue Cycle"
 
-&#x20;       ↓
+        ↓
 
 Rule still matches
 
-&#x20;       ↓
+        ↓
 
 Membership never drops
 
@@ -1420,7 +1420,7 @@ Every dynamic rule was rewritten to check account state:
 
 (user.accountEnabled -eq true)
 
-&#x20;       -and
+        -and
 
 (user.department -eq "Revenue Cycle")
 
@@ -1628,19 +1628,19 @@ Together, the projects demonstrate two sides of the same identity governance pro
 
 flowchart LR
 
-&#x20;   A["Microsoft Entra ID<br/>Identity Provider"]
+    A["Microsoft Entra ID<br/>Identity Provider"]
 
-&#x20;   B["Identity Governance<br/>RBAC • JML • SoD"]
+    B["Identity Governance<br/>RBAC • JML • SoD"]
 
-&#x20;   C["ServiceNow<br/>ITSM Workflow"]
+    C["ServiceNow<br/>ITSM Workflow"]
 
-&#x20;   D["Access Requests<br/>Approvals • Recertification"]
+    D["Access Requests<br/>Approvals • Recertification"]
 
-&#x20;   A --> B
+    A --> B
 
-&#x20;   B <--> C
+    B <--> C
 
-&#x20;   C --> D
+    C --> D
 
 ```
 
@@ -1736,19 +1736,19 @@ It requires:
 
 Correct provisioning
 
-&#x20;       +
+        +
 
 Continuous detection
 
-&#x20;       +
+        +
 
 Clear ownership
 
-&#x20;       +
+        +
 
 Access reviews
 
-&#x20;       +
+        +
 
 Audit evidence
 
@@ -1779,5 +1779,6 @@ Built and tested in **August 2026**.
 5. `evidence/`
 
 These files show the main governance logic, policy design, testing process, and real execution results.
+
 
 
